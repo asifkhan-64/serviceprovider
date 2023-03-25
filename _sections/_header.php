@@ -45,6 +45,9 @@
         scroll-behavior: smooth;
     }
 
+    .btnClass {
+        width: 48%;
+    }
 
 
 
@@ -63,13 +66,23 @@
         .loginForm {
             padding-top: 80%;
         }
+
+        .btnClass {
+            width: 100%;
+        }
     }
 
     @media only screen and (max-width: 1024px) {
         .loginForm {
             padding-top: 40%;
         }
+
+        .btnClass {
+            width: 100%;
+        }
     }
+
+    
 
    
 </style>

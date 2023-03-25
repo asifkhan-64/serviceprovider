@@ -32,9 +32,9 @@
 
                             <hr class="my-4" style="background-color: white !important;" />
 
-                            <a href="registerCustomer.php" style="width: 48%" class="btn btn-dark py-3 px-4">Sign up for booking</a>
+                            <a href="registerCustomer.php" class=" btnClass btn btn-dark py-3 px-4">Sign up for booking</a>
                             &nbsp;&nbsp;
-                            <a href="registerOwner.php" style="width: 48%" class="btn btn-dark py-3 px-4">Sign up as Car Owner</a>
+                            <a href="registerOwner.php" class=" btnClass btn btn-dark py-3 px-4">Sign up as Car Owner</a>
                         </form>
                     </div>
 

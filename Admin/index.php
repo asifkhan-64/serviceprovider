@@ -21,6 +21,9 @@
                 $_SESSION["user"] = $user_email;
                 $_SESSION["id"] = $id;
                 header("LOCATION:pages/dashboard.php");
+              }elseif ($user_status == 2) {
+                $valid_login = ' <div class="alert alert-info" style="color:green" role="alert">
+                    Pending Approval.</div>';
               }else {
                 $valid_login = ' <div class="alert alert-danger" style="background:#D52520; color:white" role="alert">
                     Access Denied. You have been restricted.</div>';
