@@ -15,7 +15,9 @@ include './_sections/_header.php';
 
 <section class="ftco-section contact-section">
     <div class="container">
-    <h3>Registration (Car Owner)</h3>
+    <h3>Registration (Car Owner)</h3> 
+
+    
     <div class="row d-flex mb-5 contact-info">
         <div class="col-md-12 block-9 mb-md-5">
             <form method="POST" enctype="multipart/form-data" class="bg-light p-5 contact-form">
@@ -97,12 +99,11 @@ include './_sections/_header.php';
                         <input type="file" class="form-control" name="license_back"  required="" />
                     </div>
                 </div>
-                
 
-                
+                <hr />
                 
                 <div class="form-group">
-                    <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                    <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
                 </div>
             </form>
         </div>

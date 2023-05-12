@@ -133,7 +133,9 @@
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-list"></i> <span>Reports</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="profile.php">Profile</a></li>
+                                <li><a href="profile.php">Bookings Report</a></li>
+                                <li><a href="profile.php">Users Report</a></li>
+                                <li><a href="profile.php">Car Owners Report</a></li>
                             </ul>
                         </li>
 
@@ -173,9 +175,17 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-comments"></i> <span> Reports </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-comments"></i> <span> Feedbacks </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="feedback_list.php">Feedback List</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-comments"></i> <span> Reports </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="profile.php">Bookings Report</a></li>
                             </ul>
                         </li>
 

@@ -49,13 +49,12 @@ if (isset($_POST["submitData"])) {
                             <h2>Make your booking</h2>
                             <div class="form-group">
                                 <label for="" class="label">Pick-up location</label>
-                                <!-- <input type="text" id="location" required="" class="form-control"> -->
                                 <input type="text" name="pickup" required="" placeholder="Enter Pick-up Location" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="label">Drop-off location</label>
-                                <input type="text"  name="dropoff" placeholder="Enter Drop-off Location" class="form-control" required="">
+                                <label for="" class="label">No. of Passengers Seats</label>
+                                <input type="number"  name="seats" placeholder="Number of Passengers" class="form-control" required="">
                             </div>
 
                             <div class="d-flex">
@@ -65,32 +64,23 @@ if (isset($_POST["submitData"])) {
                                 </div>
 
                                 <div class="form-group ml-5">
-                                    <label for="" class="label">Hours To Ride</label>
-                                    <select class="form-control"  name="hours"  style="background-color: #1089ff !important;">
-                                        <option value="1-Hour">1 Hour</option>
-                                        <option value="2-Hours">2 Hours</option>
-                                        <option value="3-Hours">3 Hours</option>
-                                        <option value="4-Hours">4 Hours</option>
-                                        <option value="5-Hours">5 Hours</option>
-                                        <option value="6-Hours">6 Hours</option>
-                                        <option value="7-Hours">7 Hours</option>
-                                        <option value="8-Hours">8 Hours</option>
-                                        <option value="9-Hours">9 Hours</option>
-                                        <option value="10-Hours">10 Hours</option>
-                                        <option value="11-Hours">11 Hours</option>
-                                        <option value="12-Hours">12 Hours</option>
-                                        <option value="24-Hours">24 Hours</option>
-                                        <option value="48-Hours">48 Hours</option>
-                                        <option value="72-Hours">72 Hours</option>
+                                    <label for="" class="label">Booking Duration</label>
+                                    <select class="form-control"  name="days"  style="background-color: #1089ff !important;">
+                                        <option value="1-Day">1 Day</option>
+                                        <option value="2-Days">2 Days</option>
+                                        <option value="3-Days">3 Days</option>
+                                        <option value="4-Days">4 Days</option>
+                                        <option value="5-Days">5 Days</option>
+                                        <option value="6-Days">6 Days</option>
+                                        <option value="7-Days">7 Days</option>
                                     </select>
-                                    <!-- <input type="text" class="form-control" id="book_off_date" placeholder="Date"> -->
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="" class="label">Pick-up time</label>
                                 <input type="text" name="pickuptime" class="form-control" id="time_pick" placeholder="Time">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <input type="submit" name="submitData" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
                             </div>
@@ -422,7 +412,7 @@ if (isset($_POST["submitData"])) {
             <div class="col-md-6 wrap-about ftco-animate">
                 <div class="heading-section heading-section-white pl-md-5">
                     <span class="subheading">About us</span>
-                    <h2 class="mb-4">Welcome to Car book</h2>
+                    <h2 class="mb-4">Welcome to Service Provider</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                     <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                     <!-- <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p> -->

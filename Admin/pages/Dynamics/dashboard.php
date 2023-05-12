@@ -42,11 +42,11 @@
                                 <div class="mini-stat-icon">
                                     <i class="fa fa-area-chart float-right mb-0"></i>
                                 </div>
-                                <h6 class="text-uppercase mb-0">Demo</h6>
+                                <h6 class="text-uppercase mb-0">Remaining Stock</h6>
                             </div>
                             <div class="card-body">
                                 <div class="border-bottom pb-4 text-center text-white">
-                                    <span style="  font-size: 100px">0</span>
+                                    <span style="  font-size: 100px"><?php echo $products ?></span>
                                 </div>
                             </div>
                         </div>
@@ -58,11 +58,11 @@
                                 <div class="mini-stat-icon">
                                     <i class="fa fa-check float-right mb-0"></i>
                                 </div>
-                                <h6 class="text-uppercase mb-0">Demo</h6>
+                                <h6 class="text-uppercase mb-0">PTA Apprroved</h6>
                             </div>
                             <div class="card-body">
                                 <div class="border-bottom pb-4 text-center text-white">
-                                    <span style="  font-size: 100px">0</span>
+                                    <span style="  font-size: 100px"><?php echo $approved ?></span>
                                 </div>
                             </div>
                         </div>
@@ -74,11 +74,11 @@
                                 <div class="mini-stat-icon">
                                     <i class="fa fa-times float-right mb-0"></i>
                                 </div>
-                                <h6 class="text-uppercase mb-0">Demo</h6>
+                                <h6 class="text-uppercase mb-0">NON_PTA</h6>
                             </div>
                             <div class="card-body">
                                 <div class="border-bottom pb-4 text-center text-white">
-                                    <span style="font-size: 100px">0</span>
+                                    <span style="font-size: 100px"><?php echo $nonApproved ?></span>
                                 </div>
                             </div>
                         </div>
@@ -90,11 +90,11 @@
                                 <div class="mini-stat-icon">
                                     <i class="fa fa-edit float-right mb-0"></i>
                                 </div>
-                                <h6 class="text-uppercase  mb-0">Demo</h6>
+                                <h6 class="text-uppercase  mb-0">IMEI Changed</h6>
                             </div>
                             <div class="card-body">
                                 <div class="border-bottom pb-4 text-center text-white">
-                                    <span style=" font-size: 100px">0</span>
+                                    <span style=" font-size: 100px"><?php echo $changeProducts  ?></span>
                                 </div>
                             </div>
                         </div>
