@@ -1,15 +1,32 @@
 <?php
 
-include './Admin/_stream/config.php';
+    include './Admin/_stream/config.php';
 
-$token = '';
-if (isset($_POST['submit'])) {
-     $token = $_POST['token'];
-}
+    $tokenError = '';
 
+    $getEmail = $_GET['email'];
+    $getCodeQuery = mysqli_query($connect, "SELECT * FROM car_owner WHERE email = '$getEmail'");
+    $fetch_codeQuery = mysqli_fetch_assoc($getCodeQuery);
+    $code = $fetch_codeQuery['confirmation_code'];
 
-include './_sections/_header.php';
+    if (isset($_POST['valideCode'])) {
+        $codeArray = $_POST['code'];
+        
 
+        $userCode = implode("", $codeArray);
+
+        if ($userCode === $code) {
+            header("LOCATION: thankYou.php");
+        }else {
+            $tokenError = '
+            <div class="alert alert-danger text-center">
+                Incorrect Code! Please Try Again!
+            </div>
+            ';
+        }
+    }
+
+    include './_sections/_header.php';
 ?>
 
 
@@ -87,48 +104,44 @@ include './_sections/_header.php';
 
     @media only screen and (max-width: 425px) {
         .card {
-            margin-top: -40%;
+            margin-top: -100%;
         }
 
         .ftco-footer {
-            margin-top: -30%;
+            margin-top: -100%;
         }
     }
 
 
 </style>
 
-<section class="ftco-section contact-section">
-    <div class="container height-100 d-flex justify-content-center align-items-center">
-        <div class="position-relative"> 
-            <div class="card p-2 text-center ">
-                <h6>Please enter the verification code to verify your account</h6>
-                <div>
-                    <span>A code has been sent to</span> 
-                    <small>*******9897</small> 
+<form method="POST">
+    <section class="ftco-section contact-section">
+        <div class="container height-100 d-flex justify-content-center align-items-center">
+            <div class="position-relative">
+                <?php echo $tokenError ?>
+                <div class="card p-2 text-center ">
+                    <h6>Please enter the verification code to verify your account</h6>
+                    <div>
+                        <span>A code has been sent to</span> 
+                        <small><?php echo $getEmail ?></small> 
+                    </div>
+                    <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="first" maxlength="1" /> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="second" maxlength="1" /> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="third" maxlength="1" /> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="fourth" maxlength="1" /> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="fifth" maxlength="1" /> 
+                        <input class="m-2 text-center form-control rounded" required="" name="code[]" type="text" id="sixth" maxlength="1" /> 
+                    </div> 
+                    <div class="mt-4"> 
+                        <button class="btn btn-danger px-4 validate" name="valideCode" type="submit">Validate</button> 
+                    </div> 
                 </div>
-                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" /> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" /> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" /> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> 
-                    <input class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> 
-                </div> 
-                <div class="mt-4"> 
-                    <button class="btn btn-danger px-4 validate">Validate</button> 
-                </div> 
-            </div> 
-
-            <div class="card-2"> 
-                <div class="content d-flex justify-content-center align-items-center"> 
-                    <span>Didn't get the code? </span> &nbsp;
-                    <a href="#" class="text-decoration-none ms-3"> Resend</a> 
-                </div> 
-            </div> 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</form>
 
 
 <script>

@@ -21,13 +21,13 @@
                 $_SESSION["user"] = $user_email;
                 $_SESSION["id"] = $id;
                 header("LOCATION:pages/dashboard.php");
-              }elseif ($user_status == 2) {
+              }elseif ($user_status == 0) {
                 $valid_login = ' <div class="alert alert-info" style="color:green" role="alert">
-                    Pending Approval.</div>';
-              }else {
+                    Pending Approval!</div>';
+              }elseif($user_status == 2) {
                 $valid_login = ' <div class="alert alert-danger" style="background:#D52520; color:white" role="alert">
-                    Access Denied. You have been restricted.</div>';
-            }
+                    Access Denied. Account restricted!</div>';
+              }
         }
     }
 
@@ -88,9 +88,26 @@
                                                         <input class="form-control" name="user_password" type="password" required="" placeholder="Password">
                                                     </div>
                                                 </div>                
-                                                <div class="form-group text-center row m-t-20 mt-5">
+                                                <div class="form-group text-center row m-t-20 mt-2">
                                                     <div class="col-12">
                                                         <button class="btn btn-primary btn-block waves-effect waves-light" type="submit" name="log_in_session">Log In</button>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-4 my-3">
+                                                        <hr>
+                                                    </div>
+
+                                                    <div class="col-4 py-1  my-3">
+                                                        Forgot Password
+                                                    </div>
+
+                                                    <div class="col-4  my-3">
+                                                        <hr>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <button class="btn btn-warning btn-block waves-effect waves-light" type="submit" name="log_in_session">Forgot Password</button>
                                                     </div>
                                                 </div>
                 
@@ -101,7 +118,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                 <button type="button"  class="btn btn-primary waves-effect waves-light d-none" id="alertify-error">Click me</button>
                             <h5 align="center"><?php echo $valid_login ?></h5>
                             </div>
                         </div>
