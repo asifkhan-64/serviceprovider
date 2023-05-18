@@ -16,7 +16,10 @@
         $userCode = implode("", $codeArray);
 
         if ($userCode === $code) {
-            header("LOCATION: thankYou.php");
+            $updateVerificationStatus = mysqli_query($connect, "UPDATE car_owner SET v_status = '1' WHERE email = '$getEmail'");
+            if ($updateVerificationStatus) {
+                header("LOCATION: thankYou.php");
+            }
         }else {
             $tokenError = '
             <div class="alert alert-danger text-center">

@@ -2,36 +2,23 @@
   include("_stream/config.php");
   
   $valid_login = "";
-  if (isset($_POST["log_in_session"])) {
-        $user_email = $_POST["user_email"];
+
+  $email = $_GET['email'];
+  
+  if (isset($_POST["change_password"])) {
         $user_password = $_POST["user_password"];
 
-        $select_user_query = "SELECT * FROM login_user WHERE email='".$user_email."' AND password='".$user_password."'";
-        $result_query = mysqli_query($connect, $select_user_query);
+        $updatePassword = mysqli_query($connect, "UPDATE login_user SET password = '$user_password' WHERE email = '$email'");
 
-        $fetch_userQuery = mysqli_fetch_array($result_query);
-            
-        if (empty($fetch_userQuery)) {
-          $valid_login = '<div class="alert alert-danger" style="background:#D52520; color:white" role="alert">Enter a valid Login</div>';
-        }else {
-            $user_status = $fetch_userQuery['status'];
-            $user_role = $fetch_userQuery['user_role'];
-                if ($user_status == 1) {
-                session_start();
-                $_SESSION["user"] = $user_email;
-                $_SESSION["id"] = $id;
-                header("LOCATION:pages/dashboard.php");
-              }elseif ($user_status == 0) {
-                $valid_login = ' <div class="alert alert-info" style="color:green" role="alert">
-                    Pending Approval!</div>';
-              }elseif($user_status == 2) {
-                $valid_login = ' <div class="alert alert-danger" style="background:#D52520; color:white" role="alert">
-                    Access Denied. Account restricted!</div>';
-              }
+        if ($updatePassword) {
+            echo '
+            <script>
+                alert("Password changed successfully!");
+            </script>
+            ';
+            header("LOCATION: index.php");
         }
     }
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -73,46 +60,22 @@
                                             <a  class="logo logo-admin"><h3 style="font-family: Georgia; font-weight: 100">Service Provider</h3></a>
                                         </h3>
                 
-                                        <h4 class="text-muted text-center font-18"><b>Sign In</b></h4><hr>
+                                        <h4 class="text-muted text-center font-18"><b>Forgot Password</b></h4>
+                                        <p class="text-center"><small>Password change request for email <q><?php echo $email ?></q></small></p>
+                                        <hr>
+                                        
                 
                                         <div class="p-2">
                                             <form class="form-horizontal m-t-20" method="POST">
                                                 <div class="form-group row">
                                                     <div class="col-12">
-                                                        <input class="form-control" name="user_email" type="email" required="" placeholder="Email">
+                                                        <input class="form-control" name="user_password" type="password" required="" placeholder="Please enter new password">
                                                     </div>
-                                                </div>
-                
-                                                <div class="form-group row">
-                                                    <div class="col-12">
-                                                        <input class="form-control" name="user_password" type="password" required="" placeholder="Password">
-                                                    </div>
-                                                </div>                
+                                                </div>               
                                                 <div class="form-group text-center row m-t-20 mt-2">
                                                     <div class="col-12">
-                                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit" name="log_in_session">Log In</button>
+                                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit" name="change_password">Change Password</button>
                                                     </div>
-
-                                                    
-                                                    <div class="col-4 my-3">
-                                                        <hr>
-                                                    </div>
-
-                                                    <div class="col-4 py-1  my-3">
-                                                        Forgot Password
-                                                    </div>
-
-                                                    <div class="col-4  my-3">
-                                                        <hr>
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <a href="forgot.php" class="btn btn-warning btn-block waves-effect waves-light" type="submit" name="log_in_session">Forgot Password</a>
-                                                    </div>
-                                                </div>
-                
-                                                <div class="form-group m-t-10 mb-0 row">
-                                                   
                                                 </div>
                                             </form>
                                         </div>
