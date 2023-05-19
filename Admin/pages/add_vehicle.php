@@ -19,7 +19,7 @@
         if ($fetch_countQuery['countedAreas'] == 0) {
             $insertQuery = mysqli_query($connect, "INSERT INTO area(area_name)VALUES('$areaName')");
             if (!$insertQuery) {
-                $error = 'Location Not Added! Try again!';
+                $error = 'Location Not Added! Try agian!';
             }else {
                 $added = '
                 <div class="alert alert-primary" role="alert">
@@ -41,18 +41,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Locations</h5>
+                <h5 class="page-title">Add Vehicle</h5>
             </div>
         </div>
         <!-- end row -->
         <div class="row">
-            <div class="col-4">
+            <div class="col-12">
                 <div class="card m-b-30">
                     <div class="card-body">
                         <form method="POST">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-sm-4 col-form-label">Name</label>
-                                <div class="col-sm-8">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-4">
                                     <input class="form-control" placeholder="Location Name" type="text" id="example-text-input" name="areaName" required="">
                                 </div>
                             </div><hr>
@@ -70,40 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
-                <div class="card m-b-30">
-                    <div class="card-body">
-                        <h4 class="mt-0 header-title">Location Details</h4>
-                       
-                        <table id="datatable" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th class="text-center"> <i class="fa fa-edit"></i>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                $retArea = mysqli_query($connect, "SELECT * FROM area");
-                                $iteration = 1;
-
-                                while ($rowArea = mysqli_fetch_assoc($retArea)) {
-                                    echo '
-                                    <tr>
-                                        <td>'.$iteration++.'</td>
-                                        <td>'.$rowArea['area_name'].'</td>
-                                        <td class="text-center"><a href="area_edit.php?id='.$rowArea['id'].'" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
-                                    </tr>
-                                    ';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> <!-- end col -->
+            
         </div> <!-- end row -->
     </div><!-- container fluid -->
 </div> <!-- Page content Wrapper -->

@@ -9,26 +9,27 @@
     $added = '';
     $error= '';
 
-    if (isset($_POST['addArea'])) {
-        $areaName = $_POST['areaName'];
+    if (isset($_POST['addVehicle'])) {
+        $vehicleName = $_POST['vehicleName'];
+        $vehicleModel = $_POST['vehicleModel'];
 
-        $countQuery = mysqli_query($connect, "SELECT COUNT(*)AS countedAreas FROM area WHERE area_name = '$areaName'");
+        $countQuery = mysqli_query($connect, "SELECT COUNT(*)AS countedVehicles FROM vehicles WHERE vehicle_name = '$vehicleName' AND vehicle_model = '$vehicleModel'");
         $fetch_countQuery = mysqli_fetch_assoc($countQuery);
 
 
-        if ($fetch_countQuery['countedAreas'] == 0) {
-            $insertQuery = mysqli_query($connect, "INSERT INTO area(area_name)VALUES('$areaName')");
+        if ($fetch_countQuery['countedVehicles'] == 0) {
+            $insertQuery = mysqli_query($connect, "INSERT INTO vehicles(vehicle_name, vehicle_model)VALUES('$vehicleName', '$vehicleModel')");
             if (!$insertQuery) {
-                $error = 'Location Not Added! Try again!';
+                $error = 'Vehicle Not Added! Try again!';
             }else {
                 $added = '
                 <div class="alert alert-primary" role="alert">
-                                Location Added!
+                                Vehicle Added!
                              </div>';
             }
         }else {
             $alreadyAdded = '<div class="alert alert-dark" role="alert">
-                                Location Already Added!
+                                Vehicle Already Added!
                              </div>';
         }
     }
@@ -41,7 +42,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Locations</h5>
+                <h5 class="page-title">Vehicle Model</h5>
             </div>
         </div>
         <!-- end row -->
@@ -51,16 +52,26 @@
                     <div class="card-body">
                         <form method="POST">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-sm-4 col-form-label">Name</label>
+                                <label for="example-text-input" class="col-sm-4 col-form-label">Vehicle</label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" placeholder="Location Name" type="text" id="example-text-input" name="areaName" required="">
+                                    <input class="form-control" placeholder="Vehicle Name" type="text" id="example-text-input" name="vehicleName" required="">
                                 </div>
-                            </div><hr>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-sm-4 col-form-label">Model</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" placeholder="i.e 2010 etc" type="number" id="example-text-input" name="vehicleModel" required="">
+                                </div>
+                            </div>
+                            
+                            <hr>
                             <div class="form-group row">
                                 <!-- <label for="example-password-input" class="col-sm-2 col-form-label"></label> -->
                                 <div class="col-sm-12" align="right">
                                     <?php include('../_partials/cancel.php') ?>
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light" name="addArea">Add Location</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light" name="addVehicle">Add Vehicle</button>
                                 </div>
                             </div>
                         </form>
@@ -73,28 +84,30 @@
             <div class="col-8">
                 <div class="card m-b-30">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Location Details</h4>
+                        <h4 class="mt-0 header-title">Vehicle Details</h4>
                        
                         <table id="datatable" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
+                                    <th>Vehicle Name</th>
+                                    <th>Vehicle Model</th>
                                     <th class="text-center"> <i class="fa fa-edit"></i>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                $retArea = mysqli_query($connect, "SELECT * FROM area");
+                                $retVehicles = mysqli_query($connect, "SELECT * FROM vehicles ORDER BY vehicle_name ASC");
                                 $iteration = 1;
 
-                                while ($rowArea = mysqli_fetch_assoc($retArea)) {
+                                while ($rowVehicles = mysqli_fetch_assoc($retVehicles)) {
                                     echo '
                                     <tr>
                                         <td>'.$iteration++.'</td>
-                                        <td>'.$rowArea['area_name'].'</td>
-                                        <td class="text-center"><a href="area_edit.php?id='.$rowArea['id'].'" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
+                                        <td>'.$rowVehicles['vehicle_name'].'</td>
+                                        <td>'.$rowVehicles['vehicle_model'].'</td>
+                                        <td class="text-center"><a href="vehicle_edit.php?id='.$rowVehicles['veh_id'].'" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
                                     </tr>
                                     ';
                                 }

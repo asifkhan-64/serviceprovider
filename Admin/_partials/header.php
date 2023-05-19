@@ -46,6 +46,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap-datepicker.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="../assets/all.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
 
     <script src='../assets/kit.js' crossorigin='anonymous'></script>
@@ -93,6 +94,13 @@
                         </li>
 
                         <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-tasks"></i> <span> Vehicle Model</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="model_list.php">Add Vehicle Model</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-car"></i> <span> Vehicle Owners</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="owner_list.php">Owners List</a></li>
@@ -124,7 +132,7 @@
 
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-google-plus"></i> <span> Social Media </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-facebook-f"></i> <span> Social Media </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="report_stock.php">Update Links</a></li>
                             </ul>
@@ -161,7 +169,7 @@
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-car"></i> <span> Vehicle</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="owner_list.php">Add Vehicle</a></li>
+                                <li><a href="add_vehicle.php">Add Vehicle</a></li>
                                 <li><a href="owner_list.php">Vehicles List</a></li>
                             </ul>
                         </li>
