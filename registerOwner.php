@@ -62,7 +62,7 @@ if (isset($_POST["register"])) {
     $templicenseFrontImage= $license_front['tmp_name'];
 
     $file_extLicenseFrontImage=pathinfo($licenseFrontImage,PATHINFO_EXTENSION);
-    $cnicBack=pathinfo($licenseFrontImage,PATHINFO_FILENAME);
+    $licenseFrontImage = pathinfo($licenseFrontImage,PATHINFO_FILENAME);
 
     $newNamelicenseFrontImage = $licenseFrontImage.date("miYisss").'.'.$file_extLicenseFrontImage;
 
@@ -82,7 +82,7 @@ if (isset($_POST["register"])) {
     $templicenseBackImage= $license_back['tmp_name'];
 
     $file_extLicenseBackImage=pathinfo($licenseBackImage,PATHINFO_EXTENSION);
-    $cnicBack=pathinfo($licenseBackImage,PATHINFO_FILENAME);
+    $licenseBackImage=pathinfo($licenseBackImage,PATHINFO_FILENAME);
 
     $newNamelicenseBackImage = $licenseBackImage.date("miYissss").'.'.$file_extLicenseBackImage;
 
@@ -94,18 +94,18 @@ if (isset($_POST["register"])) {
         echo "Error File Uploading";
     }
 
-    $checkQuery = mysqli_query($connect, "SELECT COUNT(*) AS countedUsers FROM car_owner WHERE email = '$email' AND contact = '$contact'");
+    $checkQuery = mysqli_query($connect, "SELECT COUNT(*) AS countedUsers FROM car_owner WHERE email = '$email' OR contact = '$contact' OR cnic = '$$cnic'");
     $fetch_checkQuery = mysqli_fetch_assoc($checkQuery);
     $count = $fetch_checkQuery['countedUsers'];
 
     if ($count > 0) {
-        $checkStatus = mysqli_query($connect, "SELECT v_status FROM car_owner WHERE email = '$email' AND contact = '$contact'");
+        $checkStatus = mysqli_query($connect, "SELECT v_status FROM car_owner WHERE email = '$email' OR contact = '$contact' OR cnic = '$$cnic'");
         $fetch_checkStatus = mysqli_fetch_assoc($checkStatus);
         $status = $fetch_checkStatus['v_status'];
 
         $confirmationCode = random_int(100000, 999999);
 
-        $updateVerificationCode = mysqli_query($connect, "UPDATE car_owner SET confirmation_code = '$confirmationCode' WHERE email = '$email' AND cnic = '$cnic'");
+        $updateVerificationCode = mysqli_query($connect, "UPDATE car_owner SET confirmation_code = '$confirmationCode' WHERE email = '$email' OR contact = '$contact' OR cnic = '$cnic'");
 
         // $to      = $email;
         // $subject = "Incomplte Verification - Service Provider Email Verification";

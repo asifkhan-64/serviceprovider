@@ -45,7 +45,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap-datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="../assets/bootstrap-datepicker.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="../assets/all.min.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+
 </head>
 
 
@@ -132,7 +134,7 @@
 
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-facebook-f"></i> <span> Social Media </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-twitter-square"></i> <span> Social Media </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="report_stock.php">Update Links</a></li>
                             </ul>
@@ -170,7 +172,7 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-car"></i> <span> Vehicle</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="add_vehicle.php">Add Vehicle</a></li>
-                                <li><a href="owner_list.php">Vehicles List</a></li>
+                                <li><a href="vehicles_list.php">Vehicles List</a></li>
                             </ul>
                         </li>
 
