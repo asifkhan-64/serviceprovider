@@ -113,6 +113,8 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i> <span> Registered Users</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="users_list.php">Users List</a></li>
+                                <li><a href="pending_list.php">Pending Users</a></li>
+                                <li><a href="restricted_list.php">Restricted Users</a></li>
                             </ul>
                         </li>
                                            
@@ -127,18 +129,10 @@
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-address-book"></i> <span> Contact Details </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="contact_mobile.php">Update Details</a></li>
+                                <li><a href="contact_details.php">Update Contact Details</a></li>
                             </ul>
                         </li>
 
-
-
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-twitter-square"></i> <span> Social Media </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="report_stock.php">Update Links</a></li>
-                            </ul>
-                        </li>
 
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-list"></i> <span>Reports</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>

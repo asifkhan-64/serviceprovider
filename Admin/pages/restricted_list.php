@@ -32,14 +32,14 @@
                                     <th>Location</th>
                                     <th>Verfication Status</th>
                                     <th>Login Status</th>
-                                    <th class="text-center"> <i class="fa fa-edit"></i>
-                                    </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
                                 $retUsers = mysqli_query($connect, "SELECT customers.*, area.area_name FROM `customers` 
-                                INNER JOIN area ON area.id = customers.loc_id");
+                                INNER JOIN area ON area.id = customers.loc_id
+                                WHERE customers.verification_status = '1' AND customers.login_status = '2'");
 
                                 $iteration = 1;
 
@@ -58,19 +58,13 @@
                                             echo '<td style="font-size: 18px" class="text-center"><span class="badge badge-primary">Verified</span></td>';
                                         }
 
-                                        if ($rowRetUsers['login_status'] == 0) {
-                                            echo '<td style="font-size: 18px"><a href="change_user_status.php?email='.$rowRetUsers['email'].'"><span class="badge badge-info">Pending</span></a></td>';
-                                        }elseif ($rowRetUsers['login_status'] == 1) {
-                                            echo '<td style="font-size: 18px"><a href="change_user_status.php?email='.$rowRetUsers['email'].'"><span class="badge badge-primary">Approved</span></a></td>';
-                                        }elseif ($rowRetUsers['login_status'] == 2) {
-                                            echo '<td style="font-size: 18px"><a href="change_user_status.php?email='.$rowRetUsers['email'].'"><span class="badge badge-danger">Restricted</span></a></td>';
-                                        }
+                                        
+                                        echo '<td style="font-size: 18px"><span class="badge badge-danger">Restricted</span></td>';
+                                        
 
 
                                         echo '
-                                        <td class="text-center">
-                                            <a href="view_user.php?email='.$rowRetUsers['email'].'" type="button" class="btn text-white btn-info waves-effect waves-light">View</a>
-                                        </td>
+                                        
                                     </tr>
                                     ';
                                 }

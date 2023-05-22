@@ -1,3 +1,9 @@
+<?php
+
+    include './Admin/_stream/config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
