@@ -5,6 +5,8 @@
         header("LOCATION:../index.php");
     }
 
+    $email = $_SESSION["user"];
+
     include('../_partials/header.php');
 ?>
 
@@ -39,7 +41,8 @@
                             <tbody>
                                 <?php 
                                 $retVehicles = mysqli_query($connect, "SELECT vehicle_list.*, vehicles.* FROM `vehicle_list`
-                                INNER JOIN vehicles ON vehicles.veh_id = vehicle_list.vehicle_id");
+                                INNER JOIN vehicles ON vehicles.veh_id = vehicle_list.vehicle_id
+                                WHERE vehicle_list.user_email = '$email'");
 
                                 $iteration = 1;
 

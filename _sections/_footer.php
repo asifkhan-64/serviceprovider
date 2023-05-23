@@ -42,7 +42,7 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text"><?php echo $fetchDetails['address'] ?></span></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text" style="color: white"><?php echo $fetchDetails['address'] ?></span></li><br>
                             <li><a href="tel://+92<?php echo $fetchDetails['contact'] ?>"><span class="icon icon-phone"></span><span class="text">+92<?php echo $fetchDetails['contact'] ?></span></a></li>
                             <li><a href="mailto:<?php echo $fetchDetails['email'] ?>"><span class="icon icon-envelope"></span><span class="text"><span class="__cf_email__" data-cfemail="056c6b636a457c6a7077616a68646c6b2b666a68"><?php echo $fetchDetails['email'] ?></span></span></a></li>
                         </ul>
