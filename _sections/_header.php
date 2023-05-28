@@ -1,6 +1,7 @@
 <?php
 
     include './Admin/_stream/config.php';
+    session_start();
 
 ?>
 
@@ -60,6 +61,7 @@
         margin-top: -23px;
         padding-top: 25px;
         /* padding: 10px 0px; */
+        z-index: 999;
     }
 
     .loginForm {
@@ -107,11 +109,32 @@
                 <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                <!-- <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li> -->
                 <li class="nav-item"><a href="car.php" class="nav-link">Our Fleet</a></li>
-                <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
                 <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.php" class="nav-link"> Login <i class="fa fa-sign-in"></i> </a></li>
+                <?php
+                
+                if (empty($_SESSION["user"])) {
+                    echo '
+                        <li class="nav-item"><a href="login.php" class="nav-link"> Login <i class="fa fa-sign-in"></i> </a></li>
+                    ';
+                }else {
+                    $email = $_SESSION["user"];
+                    $checkEmail = mysqli_query($connect, "SELECT COUNT(*) AS countedUsers FROM `customers` WHERE email = '$email' AND login_status = '1'");
+                    $fetch_checkEmail = mysqli_fetch_assoc($checkEmail);
+                    $count = $fetch_checkEmail['countedUsers'];
+
+                    if ($count == 0) {
+                        echo '
+                            <li class="nav-item"><a href="login.php" class="nav-link"> Login <i class="fa fa-sign-in"></i> </a></li>
+                        ';
+                    }else {
+                        echo '
+                            <li class="nav-item"><a href="profile.php" class="nav-link"> Profile <i class="fa fa-user"></i> </a></li>
+                            <li class="nav-item"><a href="signout.php" class="nav-link"> Sign Out <i class="fa fa-sign-out"></i> </a></li>
+                        ';
+                    }
+                }
+                ?>
             </ul>
         </div>
     </div>

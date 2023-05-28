@@ -1,4 +1,8 @@
-<?php include './_sections/_header.php'; ?>
+<?php 
+
+  include './_sections/_header.php'; 
+
+?>
 
 <style>
   img:hover {
@@ -21,200 +25,37 @@
 <section class="ftco-section bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-1.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-            <!-- 
-              <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-2.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Range Rover</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Subaru</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <?php
+    $getCars = mysqli_query($connect, "SELECT vehicle_images.*, vehicle_list.vehicle_price, vehicle_list.vehicle_id, vehicles.vehicle_name, vehicles.vehicle_model FROM `vehicle_images`
+    INNER JOIN vehicle_list ON vehicle_list.vlist_id = vehicle_images.list_id
+    INNER JOIN vehicles ON vehicles.veh_id = vehicle_list.vehicle_id
+    GROUP BY vehicle_images.list_id");
 
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-3.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
+      while ($RowGetCars = mysqli_fetch_assoc($getCars)) {
+        echo '
+        <div class="col-md-4">
+          <div class="car-wrap rounded ftco-animate">
+          <a href="getCarData.php?id='.$RowGetCars['list_id'].'">
+            <div class="img rounded d-flex align-items-end customHover" style="background-image: url(./Admin/assets/'.$RowGetCars['img_path'].');">
             </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-4.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-5.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Range Rover</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Subaru</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-6.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-7.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-8.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Range Rover</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Subaru</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-9.jpg);">
-          </div>
             <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
+                <h2 class="mb-0">'.$RowGetCars['vehicle_name'].'</h2>
+                <div class="d-flex mb-3">
+                    <span class="cat" style="color: black">'.$RowGetCars['vehicle_name'].' - '.$RowGetCars['vehicle_model'].'</span>
+                    <p class="price ml-auto">PKR '.$RowGetCars['vehicle_price'].' <span style="color: black">/day</span></p>
+                </div>
             </div>
-            <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-            </div>
+          </a>
+          </div>
         </div>
-      </div>
+        ';
+      }
+    ?>
 
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-10.jpg);">
-          </div>
-          <div class="text">
-          <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
+      
 
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-11.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Range Rover</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Subaru</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end customHover" style="background-image: url(images/car-12.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a>Mercedes Grand Sedan</a></h2>
-              <div class="d-flex mb-3">
-                <span class="cat">Cheverolet</span>
-                <p class="price ml-auto">$500 <span>/day</span></p>
-              </div>
-          <!-- <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p> -->
-          </div>
-        </div>
-      </div>
     </div>
-  <!-- <div class="row mt-5">
-  <div class="col text-center">
-  <div class="block-27">
-  <ul>
-  <li><a href="#">&lt;</a></li>
-  <li class="active"><span>1</span></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&gt;</a></li>
-  </ul>
-  </div>
-  </div>
-  </div> -->
   </div>
 </section>
 
